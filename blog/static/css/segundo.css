@@ -1,0 +1,25 @@
+body{
+	
+}
+.fondoCalc{
+	border-radius:50px;
+	text-align: center;	
+	margin-left: 50%;
+	margin-right: 30%;
+}
+input[type='button']{
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+	border-radius:30px;
+}	
+input[type='text']{
+	width: 175px;	
+	margin: 8px;
+	border:1px solid #333333;
+	border-radius:30px;
+	text-align:right;
+	background-color: white;
+	color:white;
+	padding: 4px;
+}

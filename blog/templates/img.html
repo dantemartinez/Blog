@@ -1,0 +1,85 @@
+{% load static %}
+{% load staticfiles %}
+<html>
+    
+<body>
+    
+<p align="center">
+    
+<img src="" id="imagen" > <br>
+
+<progress id="barra"></progress>
+<span id="valor"></span>  % <br><br>   
+    
+</body>
+    
+  <style>
+    
+      img{
+          
+      }
+  </style>  
+    
+<script>
+    
+    
+    
+    var tiempo = 5000;
+    
+    var numeroImagenes = 5 ;
+    
+    
+    var maximo = 100;
+    
+    var j=1;
+    
+    
+    document.getElementById("barra").setAttribute("value",0);
+    document.getElementById("barra").setAttribute("max",maximo);
+    
+    function cambiarImagen(){
+        
+        
+        var numero = Math.floor(Math.random() * numeroImagenes ) + 1;
+        
+        var imagenes = new Array( "{% static 'Images/' %}" + numero + ".jpg" );
+        
+        
+        var ayuda = Math.floor((0));
+        
+        
+        document.getElementById("imagen").src=imagenes[ayuda];
+
+    }
+    
+    
+    function aumentar(){
+            
+            document.getElementById("valor").innerHTML = j;
+            
+            document.getElementById("barra").setAttribute("value",j++);
+        
+            if (j<10){ j= "0"+j; }
+            
+            
+            if (j==maximo){
+                
+                j=1;
+                
+                cambiarImagen();
+            }
+            
+        } 
+     
+    
+    
+    cambiarImagen();
+         
+    
+    setInterval(aumentar,50);
+ 
+    
+    
+</script>    
+
+</html>

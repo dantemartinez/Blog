@@ -1,0 +1,33 @@
+body{
+    width:100%; 
+	overflow:hidden; 
+	background-color: darkslategrey    ;
+	margin-bottom:20px;    
+}
+
+.primero{
+    text-decoration: underline;
+    color:#f2f2f2;
+    text-align: center;
+    font-size: 40px;
+}
+
+.boton{
+    display:inline-block;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 20px;
+	line-height:normal;
+	font-size:20px;
+	font-weight:bold;
+	transition:all 500ms ease;
+    
+}
+
+
+.calcu{
+    color: black;
+    font-size: 20px;
+    background-color: gainsboro;
+    
+}

@@ -1,0 +1,32 @@
+body{
+}
+.fondoCalc{
+	background-color: #CCCCCC;
+	border-radius:30px;
+	text-align: center;	
+	margin-left: 40%;
+	margin-right: 40%;
+}
+
+.inputstyle{
+        font-family: Arial;
+        font-size: 8pt;
+        background-color: beige
+}
+
+input[type='button']{
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+	border-radius:3px;
+}	
+input[type='text']{
+	width: 175px;	
+	margin: 8px;
+	border:1px solid #333333;
+	border-radius:5px;
+	text-align:right;
+	background:black;
+	color:#ffffff;
+	padding: 4px;
+}

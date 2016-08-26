@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block sidebar %}
+{% load static %}
+{% load staticfiles %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+    <style type="text/css">
+        #sidebar { float: right; border: 1px dotted #ccc; padding: 4px; }
+        a { margin-left: 15px; }
+
+    </style>
+    <div id="sidebar">
+        Monthly Archive
+        <p>
+        {% for month in months %}
+            {% ifchanged month.0 %} {{ month.0 }} <br /> {% endifchanged %}
+
+        {% endfor %}
+        </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{% for post in post_list %}
+<div class="container" ALIGN=center>
+    <div class="left-panel">
+        <div class="col-xs-12 col-sm-6 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="thumbnail">
+                            <a href="#"><img src="{% static 'fotos/'%}{{post.nombre_imagen}}" alt=""/></a>
+                        </div>
+                        <div class="icerik-bilgi">
+                            <a><h2>{{post.title}}</h2></a>
+                            <p>Click en el boton debajo para saber mas sobre este post</p>
+                            <div class="btn-group">
+                                <a class="btn btn-social btn-facebook" href="#" data-toggle="tooltip" title="Share Facebook"><i class="fa fa-facebook"></i></a>
+                                <a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>
+                                <a class="btn btn-social btn-google" href="#" data-toggle="tooltip" title="Share Google"><i class="fa fa-google"></i></a>
+                            </div>
+                            <a href="{% url 'index:post' post.id %}">
+                             <button type="button" class="btn btn-primary "  >
+                                <span class="btn btn-google">Detalles<i class="fa fa-chevron-right"></i></span>
+                             </button>
+                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+</script>
+</div>{% endfor %}
+
+        <!-- Next/Prev page links  -->
+        {% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href= "?page={{ posts.previous_page_number }}">Entradas mas nuevas &lt;&lt; </a>
+                {% endif %}
+
+                <span class="current">
+                    &nbsp;Pagina {{ posts.number }} de {{ posts.paginator.num_pages }}
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; Post mas viejitos</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+
+
+
+{% endblock %}

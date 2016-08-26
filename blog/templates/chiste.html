@@ -1,0 +1,45 @@
+{% load static %}
+{% load staticfiles %}
+<html>
+
+    <head>
+    </head> 
+    
+    <body>
+    
+        <button id="btn" onmouseover="random()">Clickeame</button>
+        Username: <textarea></textarea> <br>
+        Password : <textarea></textarea><br><br>
+        
+        <script>
+            
+            function random() {
+            
+                var div = document.getElementById("btn");
+                var a = Math.random();
+                var a = a*500;
+                var b = Math.random();
+                var b = b*200;
+                console.log(a);
+                div.style.left = a;
+                div.style.top = b;
+                
+            }
+        
+        
+        </script>
+        
+        <style type="text/css">
+        
+            button{
+    
+                position: absolute;    
+                top: 50%;
+                right: 50%;
+
+            }
+        </style>
+        
+    </body>
+    
+</html>
